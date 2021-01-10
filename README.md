@@ -17,8 +17,10 @@
     ~~~~
     ./mysql2sqlite dump_mysql.sql | sqlite3 mysqlite3.db
     ~~~~
+   
+1. **经测试MySql的sql文件中的`DROP TABLE IF EXISTS` `AUTO_INCREMENT` `PRIMARY KEY` `UNIQUE INDEX` 等语句需要删除**
 
-（`mysql2sqlite`和`sqlite3`都可能会向标准输出和标准错误输出写入一些东西 - 例如。`memory` 来自 `PRAGMA journal_mode = MEMORY;` 是无害的）
+*`mysql2sqlite`和`sqlite3`都可能会向标准输出和标准错误输出写入一些东西，例如：`memory`来自`PRAGMA journal_mode = MEMORY;`是无害的。*
 
 ## 开发
 
