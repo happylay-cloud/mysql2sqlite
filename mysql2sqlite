@@ -9,13 +9,15 @@ function printerr( s ){ print s | "cat >&2" }
 BEGIN {
   if( ARGC != 2 ){
     printerr( \
-      "USAGE:\n"\
+      "用法：\n"\
       "       mysql2sqlite dump_mysql.sql > dump_sqlite3.sql\n" \
-      "       OR\n" \
+      "       或\n" \
       "       mysql2sqlite dump_mysql.sql | sqlite3 sqlite.db\n" \
       "\n" \
-      "NOTES:\n" \
-      "       Dash in filename is not supported, because dash (-) means stdin." )
+      "备注：\n" \
+      "       MySql导出的sql文件中如果包含唯一索引（UNIQUE INDEX）相关语句，则需要删除。" \
+      "\n" \
+      "       不支持文件名中的破折号（-），因为破折号（-）表示标准输入。" )
     no_END = 1
     exit 1
   }
